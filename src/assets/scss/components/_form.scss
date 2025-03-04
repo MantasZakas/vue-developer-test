@@ -1,0 +1,56 @@
+@use "../common/variables" as *;
+
+.form {
+
+  &-item {
+
+    label {
+      width: 100%;
+
+      span {
+
+      }
+
+      input {
+        width: 100%;
+        height: 50px;
+        border-radius: 3px;
+        border: 1px solid rgba($grey, 0.25);
+        background-color: $white;
+        padding: 10px 24px;
+        transition: 0.3s;
+
+        &::placeholder {
+          color: rgba($grey, 0.6);
+          opacity: 1;
+        }
+
+        &:focus {
+          outline: none;
+          border-color: $grey;
+        }
+      }
+    }
+
+    &--search {
+
+      label {
+
+        input {
+          border-color: rgba($black, 0.2);
+          height: 52px;
+          padding-left: 60px;
+          background-size: 24px;
+          background-repeat: no-repeat;
+          background-position: left 20px center;
+          background-image: url('../images/search.svg');
+
+          &::placeholder {
+            color: $placeholder;
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}

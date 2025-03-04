@@ -9,10 +9,10 @@ import messageIcon from '../assets/icons/message.svg'
 import paymentIcon from '../assets/icons/payment.svg'
 import settingsIcon from '../assets/icons/settings.svg'
 import helpIcon from '../assets/icons/help.svg'
-import { ref } from "vue";
-import { INavigationItem } from "../interfaces/NavigationInterface";
+import { ref } from "vue"
+import { INavigationItem } from "../interfaces/NavigationInterface"
 import { useI18n } from 'vue-i18n'
-import VerticalMenu from "./VerticalMenu.vue";
+import VerticalMenu from "./VerticalMenu.vue"
 
 const { t } = useI18n()
 const links = ref<INavigationItem[]>([

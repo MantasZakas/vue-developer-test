@@ -10,7 +10,7 @@ const routes = [
     path: '/',
     component: DefaultLayout,
     children: [
-      { path: '', name: ERoute.dashboard, component: Dashboard },
+      { path: '', name: ERoute.dashboard, component: Dashboard, meta: { showSearch: true } },
       { path: '/product', name: ERoute.product, component: Product },
       { path: '/lab-test', name: ERoute.labTest, component: ComingSoon },
       { path: '/appointment', name: ERoute.appointment, component: ComingSoon },

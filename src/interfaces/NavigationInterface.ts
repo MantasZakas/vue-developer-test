@@ -1,4 +1,4 @@
-import {ERoute} from "../router/utils";
+import { ERoute } from "../router/utils"
 
 export interface INavigationItem {
   icon: string,
