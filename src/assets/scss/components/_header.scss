@@ -1,6 +1,10 @@
 .header {
   margin-bottom: 44px;
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
+
+  &-controls {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+  }
 }

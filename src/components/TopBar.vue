@@ -3,12 +3,15 @@ import FormInput from "./FormInput.vue"
 import {useRoute, useRouter} from 'vue-router'
 import { ref, onMounted, watch  } from "vue"
 import { debounce } from 'lodash'
+import notificationIcon from '../assets/icons/notification.svg'
+import avatarPlaceholder from '../assets/images/avatar-placeholder.jfif'
 
 const route = useRoute();
 const router = useRouter();
 const showSearchBar = route.meta?.showSearch ?? false
 const searchValue = ref<string>('')
 const focusOnSearch = ref<boolean>(false)
+const notificationActive = ref<boolean>(true)
 
 onMounted(() => {
   searchValue.value = route.query.s as string | ''
@@ -29,16 +32,28 @@ watch(searchValue, (newValue) => {
 
 <template>
   <header class="header">
-    <div class="flex-grow-1">
-      <FormInput
-          v-if="showSearchBar"
-          :placeholder="$t('Search')"
-          :is-search="true"
-          :focus-on-load="focusOnSearch"
-          v-model:value="searchValue"/>
-    </div>
-    <div>
-      placeholder
+    <div class="row justify-content-between">
+      <div class="col col-md-8 col-lg-7">
+        <FormInput
+            v-if="showSearchBar"
+            :placeholder="$t('Search')"
+            :is-search="true"
+            :focus-on-load="focusOnSearch"
+            v-model:value="searchValue"/>
+      </div>
+      <div class="col">
+        <div class="header-controls">
+          <button class="button-icon"
+                  :class="{'button-icon--notify': notificationActive}"
+                  :aria-label="$t('Notification')">
+            <img :src="notificationIcon" :alt="$t('Notification')"/>
+          </button>
+          <button class="button-avatar"
+                  :aria-label="$t('Username')">
+            <img :src="avatarPlaceholder" :alt="$t('Username')"/>
+          </button>
+        </div>
+      </div>
     </div>
   </header>
 </template>
