@@ -1,0 +1,110 @@
+@use "../common/variables" as *;
+
+.sidebar {
+  background-color: $white;
+  flex-shrink: 0;
+  height: 100vh;
+  width: 230px;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  display: flex;
+  flex-direction: column;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &-top {
+    height: 150px;
+    display: flex;
+    align-items: center;
+    padding: 29px;
+    flex-shrink: 0;
+
+    &__logo {
+      height: 36px;
+
+      img {
+        height: 100%;
+        width: auto;
+      }
+    }
+  }
+
+  &-body {
+    flex-grow: 1;
+  }
+
+  &-bottom {
+    flex-shrink: 0;
+    padding: 22px 0;
+  }
+
+  &-nav {
+
+    ul {
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      list-style: none;
+
+      li {
+        padding: 0;
+        margin: 0;
+
+        a {
+          display: flex;
+          gap: 16px;
+          transition: 0.3s;
+          padding: 8px 16px 8px 41px;
+          color: rgba($black, 0.6);
+          position: relative;
+
+          &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 100%;
+            background-color: $blue;
+            opacity: 0;
+            transition: 0.3s;
+          }
+
+          img {
+            width: 24px;
+            transition: 0.3s;
+            filter: brightness(0);
+            opacity: 0.6;
+          }
+
+          &:hover, &.router-link-exact-active {
+            opacity: 1;
+            color: $blue;
+
+            img {
+              filter: none;
+              opacity: 1;
+            }
+          }
+
+          &.router-link-exact-active {
+
+            &:before {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &-bottom {
+
+  }
+}

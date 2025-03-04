@@ -1,0 +1,43 @@
+@use "variables" as *;
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: $background;
+  color: $black;
+  font-family: "Poppins", sans-serif;
+}
+
+#app {
+  flex-grow: 1;
+}
+
+h1, .h1 {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.5;
+  margin-bottom: 30px;
+  color: $black;
+}
+
+a {
+  color: $blue;
+  transition: 0.3s;
+  text-decoration: none;
+
+  &:hover {
+    color: rgba($blue, 0.7);
+  }
+}
+
+
+img {
+  max-width: 100%;
+  height: auto;
+}

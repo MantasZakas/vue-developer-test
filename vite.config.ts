@@ -8,4 +8,15 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: 'src/test/setup.ts',
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `
+          @use "./common/variables" as *;
+          @use "bootstrap/scss/bootstrap" as *;
+        `,
+        quietDeps: true,
+      },
+    },
+  },
 })

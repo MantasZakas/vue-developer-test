@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import './style.css'
+import './assets/scss/app.scss'
 import App from './App.vue'
 import { router } from './router'
 import i18n from './plugins/i18n'

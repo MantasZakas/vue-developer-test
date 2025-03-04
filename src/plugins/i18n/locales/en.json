@@ -1,3 +1,15 @@
 {
-  "hello": "Hello World!"
+  "Home": "Home",
+  "Sales": "Sales",
+  "Coming soon": "Coming soon",
+  "Dashboard": "Dashboard",
+  "Lab Test": "Lab Test",
+  "Appointment": "Appointment",
+  "Medicine Order": "Medicine Order",
+  "Message": "Message",
+  "Payment": "Payment",
+  "Settings": "Settings",
+  "Primary navigation": "Primary navigation",
+  "Bottom navigation": "Bottom navigation",
+  "Help": "Help"
 }

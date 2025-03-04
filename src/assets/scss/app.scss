@@ -1,0 +1,10 @@
+@use "common/variables" as *;
+@use 'bootstrap/scss/bootstrap' as *;
+
+//common
+@use "common/global" as *;
+@use "common/page" as *;
+
+//components
+@use "components/datatable" as *;
+@use "components/sidebar" as *;

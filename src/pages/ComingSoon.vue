@@ -3,6 +3,8 @@ console.log()
 </script>
 
 <template>
-hello
+  <h1>
+    {{ $t('Coming soon') }}
+  </h1>
 </template>
 
