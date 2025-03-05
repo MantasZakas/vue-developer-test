@@ -9,7 +9,6 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "useDefineForClassFields": true,
-
     /* Bundler mode */
     "moduleResolution": "Node",
     "allowImportingTsExtensions": true,
@@ -24,5 +23,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["vite.config.ts"]
+  "include": ["vite.config.ts", "src/**/*.ts", "src/**/*.vue"]
 }
