@@ -1,5 +1,33 @@
 <script setup lang="ts">
-console.log()
+import type { IDataTableColumn } from "../interfaces/DataTableInterface"
+import {onMounted, ref} from "vue"
+import _, { get } from 'lodash'
+
+const props = withDefaults(defineProps<Props>(), {
+  columns: () => []
+})
+
+interface Props {
+  columns: IDataTableColumn[]
+  fetchCallback: () => Promise<[]>
+}
+
+const items = ref<any[]>([])
+const isLoading = ref<boolean>(false)
+
+function fetchData() {
+  isLoading.value = true
+  items.value = []
+  props.fetchCallback().then(response => {
+    items.value = response
+  }).finally(() => {
+    isLoading.value = false
+  })
+}
+
+onMounted(() => {
+  fetchData()
+})
 </script>
 
 <template>
@@ -8,22 +36,39 @@ console.log()
     <table class="table">
       <thead>
       <tr>
-        <th>1</th>
-        <th>2</th>
-        <th>3</th>
+        <th v-for="(column, index) in columns" :key="index">
+          {{ column.title }}
+        </th>
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <td>1</td>
-        <td>2</td>
-        <td>3</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>2</td>
-        <td>3</td>
-      </tr>
+      <template v-if="isLoading">
+        <tr>
+          <td :colspan="columns.length" class="text-center">
+            {{ $t('Loading') }}
+          </td>
+        </tr>
+      </template>
+      <template v-else-if="items && !items.length">
+        <tr>
+          <td :colspan="columns.length" class="text-center">
+            {{ $t('No results were found') }}
+          </td>
+        </tr>
+      </template>
+      <template v-else>
+        <tr v-for="(item, rowIndex) in items"
+            :key="rowIndex">
+          <td v-for="(column, columnIndex) in columns"
+              :key="columnIndex">
+            <slot
+                :name="column.key"
+                :item="item"
+            />
+            <span v-if="!$slots[column.key]">{{ get(item, column.key) }}</span>
+          </td>
+        </tr>
+      </template>
       </tbody>
     </table>
   </div>

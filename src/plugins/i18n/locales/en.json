@@ -19,5 +19,12 @@
   "Title": "Title",
   "Enter Title": "Enter Title",
   "Brand": "Brand",
-  "Enter Brand": "Enter Brand"
+  "Enter Brand": "Enter Brand",
+  "Error occurred": "Error occurred",
+  "Category": "Category",
+  "Price": "Price",
+  "Stock": "Stock",
+  "Rating": "Rating",
+  "Loading": "Loading",
+  "No results were found": "No results were found"
 }
