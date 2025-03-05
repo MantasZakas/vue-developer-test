@@ -28,5 +28,20 @@
   "Loading": "Loading",
   "No results were found": "No results were found",
   "Select all": "Select all",
-  "Sort": "Sort"
+  "Sort": "Sort",
+  "Created": "Created",
+  "Updated": "Updated",
+  "ID": "ID",
+  "SKU": "SKU",
+  "Barcode": "Barcode",
+  "Tags": "Tags",
+  "Availability": "Availability",
+  "Discount": "Discount",
+  "Weight": "Weight",
+  "Dimensions": "Dimensions",
+  "Minimum order": "Minimum order",
+  "Warranty information": "Warranty information",
+  "Shipping information": "Shipping information",
+  "Returns policy": "Returns policy",
+  "Reviews": "Reviews"
 }
