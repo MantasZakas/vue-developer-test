@@ -8,8 +8,10 @@ import { useI18n } from "vue-i18n"
 import type { IDataTableColumn } from "../interfaces/DataTableInterface"
 import { AxiosError } from "axios"
 import { ERoute } from '../router/utils'
+import { useRoute } from "vue-router"
 
 const { t } = useI18n()
+const route = useRoute()
 const productTitle = ref<string>('')
 const productBrand = ref<string>('')
 const columns: IDataTableColumn[] = [
@@ -23,7 +25,11 @@ const columns: IDataTableColumn[] = [
 
 async function fetchProducts():Promise<Product[]> {
   try {
-    const response = await ProductsService.getProducts()
+    const response = await (
+        route.query.s
+            ? ProductsService.searchProducts(String(route.query.s))
+            : ProductsService.getProducts()
+    )
     return response.products.map(
         (productResponseItem) => new Product(productResponseItem)
     )

@@ -7,6 +7,11 @@ export default class ProductsService {
       .then(response => response.data)
   }
 
+  static searchProducts(q: string, params: object = {}): Promise<IProductResponse> {
+    return axiosInstance.get('products/search', { params : {...params, q} })
+      .then(response => response.data)
+  }
+
   static getProduct(id: number): Promise<IProductResponseItem> {
     return axiosInstance.get(`products/${id}` )
       .then(response => response.data)
