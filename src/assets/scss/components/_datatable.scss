@@ -1,0 +1,60 @@
+@use "../common/variables" as *;
+
+.datatable {
+
+  table {
+    margin-bottom: 0;
+
+    thead {
+
+      th {
+        font-weight: 600;
+        padding: 24px 12px 29px;
+
+        &:first-child {
+          border-top-left-radius: 3px;
+        }
+
+        &:last-child {
+          border-top-right-radius: 3px;
+        }
+      }
+    }
+
+    tbody {
+
+      tr {
+
+        &:last-child {
+
+          td {
+
+            &:first-child {
+              border-bottom-left-radius: 3px;
+            }
+
+            &:last-child {
+              border-bottom-right-radius: 3px;
+            }
+          }
+        }
+
+        td {
+          padding: 30px 12px 24px;
+        }
+      }
+    }
+
+    td, th {
+      border-bottom: 1px solid $border;
+
+      &:first-child {
+        padding-left: 24px;
+      }
+
+      &:last-child {
+        padding-right: 24px;
+      }
+    }
+  }
+}

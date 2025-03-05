@@ -7,10 +7,12 @@ import TopBar from "../components/TopBar.vue";
   <div class="page-wrap">
     <Sidebar/>
     <main class="page-content">
-      <TopBar/>
-      <RouterView v-slot="{ Component }">
-        <Component :is="Component"/>
-      </RouterView>
+      <div class="container m-0 p-0">
+        <TopBar/>
+        <RouterView v-slot="{ Component }">
+          <Component :is="Component"/>
+        </RouterView>
+      </div>
     </main>
   </div>
 </template>

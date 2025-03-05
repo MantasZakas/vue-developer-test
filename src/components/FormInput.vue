@@ -11,8 +11,8 @@ const props = withDefaults(defineProps<Props>(), {
 
 interface Props {
   value?: string | number
-  isSearch: boolean
-  placeholder: string
+  isSearch?: boolean
+  placeholder?: string
   label?: string
   focusOnLoad?: boolean
 }

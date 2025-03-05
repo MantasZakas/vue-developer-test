@@ -1,3 +1,10 @@
+// Grid
+
+$grid-columns:                12 !default;
+$grid-gutter-width:           60px !default;
+
+// Colors
+
 $black: #000000;
 $blue: #0B63F8;
 $grey: #131313;
@@ -5,3 +12,4 @@ $yellow: #FFBC0F;
 $background: #F8F8F8;
 $white: #FFFFFF;
 $placeholder: #ADA7A7;
+$border: #F2F2F2;

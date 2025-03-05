@@ -41,7 +41,7 @@ watch(searchValue, (newValue) => {
             :focus-on-load="focusOnSearch"
             v-model:value="searchValue"/>
       </div>
-      <div class="col">
+      <div class="col flex-grow-0 flex-shrink-1">
         <div class="header-controls">
           <button class="button-icon"
                   :class="{'button-icon--notify': notificationActive}"

@@ -1,11 +1,12 @@
 @use "common/variables" as *;
 @use 'bootstrap/scss/bootstrap' as *;
 
-//common
+// Common
 @use "common/global" as *;
 @use "common/page" as *;
+@use "common/helpers" as *;
 
-//components
+// Components
 @use "components/datatable" as *;
 @use "components/sidebar" as *;
 @use "components/form" as *;
