@@ -29,7 +29,7 @@ describe('ProductsService', () => {
       }]
     }
 
-    axiosInstance.get.mockResolvedValue({ data: mockData })
+    vi.mocked(axiosInstance.get).mockResolvedValue({ data: mockData })
 
     const result = await ProductsService.getProducts()
 
@@ -64,7 +64,7 @@ describe('ProductsService', () => {
       }]
     }
 
-    axiosInstance.get.mockResolvedValue({ data: mockData })
+    vi.mocked(axiosInstance.get).mockResolvedValue({ data: mockData })
 
     const query = 'search'
     const result = await ProductsService.searchProducts(query)
@@ -91,7 +91,7 @@ describe('ProductsService', () => {
       rating: 5.0
     }
 
-    axiosInstance.get.mockResolvedValue({ data: mockProduct })
+    vi.mocked(axiosInstance.get).mockResolvedValue({ data: mockProduct })
 
     const result = await ProductsService.getProduct(1)
 
