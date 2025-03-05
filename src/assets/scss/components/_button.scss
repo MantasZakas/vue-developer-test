@@ -15,6 +15,17 @@
     position: relative;
   }
 
+  &-action {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    padding: 0;
+    border: none;
+    background-color: $white;
+    font-size: 0;
+    line-height: 0;
+  }
+
   &-icon {
     @extend .button-square;
     display: flex;
@@ -75,20 +86,46 @@
   }
 
   &-checkbox {
-    width: 24px;
-    height: 24px;
-    position: relative;
-    padding: 0;
-    border: none;
-    background-color: $white;
-    font-size: 0;
-    line-height: 0;
-
+    @extend .button-action;
     @extend .checkbox-display;
 
     &--selected {
 
       &:after {
+        opacity: 1;
+      }
+    }
+  }
+
+  &-sort {
+    @extend .button-action;
+
+    &:before, &:after {
+      @extend .pseudo;
+      filter: brightness(0);
+      opacity: 0.2;
+    }
+
+    &:before {
+      background-image: url('../images/sort-up.svg');
+    }
+
+    &:after {
+      background-image: url('../images/sort-down.svg');
+    }
+
+    &--up {
+
+      &:before {
+        filter: none;
+        opacity: 1;
+      }
+    }
+
+    &--down {
+
+      &:after {
+        filter: none;
         opacity: 1;
       }
     }

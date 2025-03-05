@@ -16,9 +16,9 @@ const route = useRoute()
 const productTitle = ref<string>('')
 const productBrand = ref<string>('')
 const columns: IDataTableColumn[] = [
-  { title: t('Title'), key: "title" },
+  { title: t('Title'), key: "title", sortable: true },
   { title: t('Category'), key: "category" },
-  { title: t('Brand'), key: "brand" },
+  { title: t('Brand'), key: "brand", sortable: true },
   { title: t('Price'), key: "price" },
   { title: t('Stock'), key: "stock" },
   { title: t('Rating'), key: "rating" }
@@ -26,10 +26,14 @@ const columns: IDataTableColumn[] = [
 
 async function fetchProducts():Promise<Product[]> {
   try {
+    const sortParams = {
+      sortBy: route.query.sort || undefined,
+      order: route.query.order || undefined
+    }
     const response: IProductResponse = await (
         route.query.s
-            ? ProductsService.searchProducts(String(route.query.s))
-            : ProductsService.getProducts()
+            ? ProductsService.searchProducts(String(route.query.s), sortParams)
+            : ProductsService.getProducts(sortParams)
     )
     return response.products.map(
         (productResponseItem: IProductResponseItem) => new Product(productResponseItem)

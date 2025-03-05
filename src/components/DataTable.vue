@@ -2,7 +2,8 @@
 import type {IDataTableColumn} from "../interfaces/DataTableInterface"
 import { onMounted, ref, computed } from "vue"
 import { get } from 'lodash'
-import FormCheckbox from "./FormCheckbox.vue";
+import FormCheckbox from "./FormCheckbox.vue"
+import { useRoute, useRouter } from "vue-router"
 
 const props = withDefaults(defineProps<Props>(), {
   columns: () => [],
@@ -15,6 +16,8 @@ interface Props {
   selectableRows: boolean
 }
 
+const route = useRoute();
+const router = useRouter();
 const items = ref<any[]>([])
 const isLoading = ref<boolean>(false)
 
@@ -52,6 +55,27 @@ function toggleSelectAll() {
   });
 }
 
+function sortItems(key: string) {
+  if (route.query.sort !== key) {
+    router.replace({
+      path: route.path,
+      query: { ...route.query, sort: key, order: 'asc' }
+    })
+    return
+  }
+  if (route.query.order === 'asc') {
+    router.replace({
+      path: route.path,
+      query: { ...route.query, sort: key, order: 'desc' }
+    })
+    return;
+  }
+  router.replace({
+    path: route.path,
+    query: { ...route.query, sort: undefined, order: undefined }
+  })
+}
+
 onMounted(() => {
   fetchData()
 })
@@ -71,7 +95,18 @@ onMounted(() => {
               :aria-label="$t('Select all')"/>
         </th>
         <th v-for="(column, index) in columns" :key="index">
-          {{ column.title }}
+          <div class="d-flex align-items-center gap-1">
+            {{ column.title }}
+            <button
+                class="button-sort"
+                :class="{
+                   'button-sort--up': route.query.sort === column.key && route.query.order === 'asc',
+                   'button-sort--down': route.query.sort === column.key && route.query.order === 'desc',
+                }"
+                :aria-label="$t('Sort')"
+                @click="sortItems(column.key)"
+                v-if="column.sortable"/>
+          </div>
         </th>
       </tr>
       </thead>
