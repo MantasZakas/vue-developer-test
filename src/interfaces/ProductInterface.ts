@@ -10,7 +10,7 @@ export interface IProduct {
 
 export interface IProductResponse {
   limit: number
-  products: IProductResponseItem
+  products: IProductResponseItem[]
   skip: number
   total: number
 }

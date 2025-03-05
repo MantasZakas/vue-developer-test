@@ -1,4 +1,4 @@
-import type { IProduct, IProductResponseItem } from "/src/interfaces/ProductInterface"
+import type { IProduct, IProductResponseItem } from "../interfaces/ProductInterface"
 
 export class Product implements IProduct {
   id: number

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { INavigationItem } from "../interfaces/NavigationInterface"
+import type { INavigationItem } from "../interfaces/NavigationInterface"
 
 const props = defineProps<Props>()
 

@@ -1,5 +1,29 @@
-//TODO refactor to mixin if more spacings needed in further development
-
+// TODO refactor to mixin if more spacings needed in further development
 .mb-34 {
   margin-bottom: 34px;
+}
+
+.checkbox-display {
+  &:before, &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transition: 0.3s;
+  }
+
+  &:before {
+    background-image: url('../images/checkbox-base.svg');
+  }
+
+  &:after {
+    background-image: url('../images/checkbox-check.svg');
+    opacity: 0;
+  }
 }

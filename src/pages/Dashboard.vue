@@ -9,6 +9,7 @@ import type { IDataTableColumn } from "../interfaces/DataTableInterface"
 import { AxiosError } from "axios"
 import { ERoute } from '../router/utils'
 import { useRoute } from "vue-router"
+import type { IProductResponse, IProductResponseItem } from "../interfaces/ProductInterface";
 
 const { t } = useI18n()
 const route = useRoute()
@@ -25,13 +26,13 @@ const columns: IDataTableColumn[] = [
 
 async function fetchProducts():Promise<Product[]> {
   try {
-    const response = await (
+    const response: IProductResponse = await (
         route.query.s
             ? ProductsService.searchProducts(String(route.query.s))
             : ProductsService.getProducts()
     )
     return response.products.map(
-        (productResponseItem) => new Product(productResponseItem)
+        (productResponseItem: IProductResponseItem) => new Product(productResponseItem)
     )
   } catch (error: unknown) {
     let errorMessage = t('Error occurred')
@@ -47,6 +48,7 @@ async function fetchProducts():Promise<Product[]> {
 <template>
   <h1>{{ $t('Products Information') }}</h1>
   <DataTable
+      :selectable-rows="true"
       :columns="columns"
       :fetch-callback="fetchProducts">
     <div class="row">

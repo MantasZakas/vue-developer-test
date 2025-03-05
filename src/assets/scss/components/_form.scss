@@ -1,4 +1,5 @@
 @use "../common/variables" as *;
+@use "../common/helpers" as *;
 
 .form {
 
@@ -13,23 +14,44 @@
       }
 
       input {
-        width: 100%;
-        height: 50px;
-        border-radius: 3px;
-        border: 1px solid rgba($grey, 0.25);
-        background-color: $white;
-        padding: 10px 24px;
-        transition: 0.3s;
-        font-weight: 300;
 
-        &::placeholder {
-          color: rgba($grey, 0.6);
-          opacity: 1;
+        &[type=text] {
+          width: 100%;
+          height: 50px;
+          border-radius: 3px;
+          border: 1px solid rgba($grey, 0.25);
+          background-color: $white;
+          padding: 10px 24px;
+          transition: 0.3s;
+          font-weight: 300;
+
+          &::placeholder {
+            color: rgba($grey, 0.6);
+            opacity: 1;
+          }
+
+          &:focus {
+            outline: none;
+            border-color: $grey;
+          }
         }
 
-        &:focus {
-          outline: none;
-          border-color: $grey;
+        &[type=checkbox] {
+          display: none;
+
+          & ~ i {
+            display: block;
+            width: 24px;
+            height: 24px;
+            position: relative;
+            cursor: pointer;
+
+            @extend .checkbox-display;
+          }
+
+          &:checked~i:after {
+            opacity: 1;
+          }
         }
       }
     }
@@ -38,7 +60,7 @@
 
       label {
 
-        input {
+        input[type=text] {
           border-color: rgba($black, 0.2);
           height: 52px;
           padding-left: 60px;
