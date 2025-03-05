@@ -16,7 +16,7 @@ const route = useRoute()
 const productTitle = ref<string>('')
 const productBrand = ref<string>('')
 const columns: IDataTableColumn[] = [
-  { title: t('Title'), key: "title", sortable: true },
+  { title: t('Title'), key: "title", sortable: true, showInMobile: true },
   { title: t('Category'), key: "category" },
   { title: t('Brand'), key: "brand", sortable: true },
   { title: t('Price'), key: "price" },

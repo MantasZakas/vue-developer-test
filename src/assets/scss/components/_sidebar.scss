@@ -1,11 +1,11 @@
 @use "../common/variables" as *;
+@use 'bootstrap/scss/bootstrap' as bs;
 
 .sidebar {
   position: fixed;
   top: 0;
   left: 0;
   background-color: $white;
-  flex-shrink: 0;
   height: 100vh;
   width: 230px;
   overflow-y: auto;
@@ -14,14 +14,37 @@
   display: flex;
   flex-direction: column;
 
+  @include bs.media-breakpoint-down(lg) {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
   &::-webkit-scrollbar {
     display: none;
   }
 
   &-wrap {
+    flex-shrink: 0;
     position: relative;
     width: 230px;
     min-height: 100vh;
+    z-index: 10;
+
+    @include bs.media-breakpoint-down(lg) {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      transform: translateY(-100%);
+      transition: transform 0.3s;
+    }
+
+    &--active {
+
+      @include bs.media-breakpoint-down(lg) {
+        transform: translateY(0);
+      }
+    }
   }
 
   &-top {
@@ -30,6 +53,10 @@
     align-items: center;
     padding: 29px;
     flex-shrink: 0;
+
+    @include bs.media-breakpoint-down(lg) {
+      height: 110px;
+    }
 
     &__logo {
       height: 36px;
@@ -59,6 +86,10 @@
       flex-direction: column;
       gap: 25px;
       list-style: none;
+
+      @include bs.media-breakpoint-down(lg) {
+        gap: 12px;
+      }
 
       li {
         padding: 0;
@@ -111,9 +142,5 @@
         }
       }
     }
-  }
-
-  &-bottom {
-
   }
 }

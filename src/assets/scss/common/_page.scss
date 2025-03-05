@@ -1,3 +1,5 @@
+@use 'bootstrap/scss/bootstrap' as bs;
+
 .page {
 
   &-wrap {
@@ -8,5 +10,9 @@
     flex-grow: 1;
     min-width: 0;
     padding: 56px 40px 33px;
+
+    @include bs.media-breakpoint-down(lg) {
+      padding: 30px 15px;
+    }
   }
 }

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type {IDataTableColumn} from "../interfaces/DataTableInterface"
+import type { IDataTableColumn } from "../interfaces/DataTableInterface"
 import { onMounted, ref, computed } from "vue"
 import { get } from 'lodash'
 import FormCheckbox from "./FormCheckbox.vue"
@@ -87,7 +87,7 @@ onMounted(() => {
     <table class="table">
       <thead>
       <tr>
-        <th class="checkbox" v-if="props.selectableRows">
+        <th class="datatable-checkbox" v-if="props.selectableRows">
           <button
               class="button-checkbox"
               :class="{'button-checkbox--selected': allItemsSelected}"
@@ -128,11 +128,12 @@ onMounted(() => {
       <template v-else>
         <tr v-for="(item, rowIndex) in items"
             :key="rowIndex">
-          <td class="checkbox" v-if="props.selectableRows">
+          <td class="datatable-checkbox" v-if="props.selectableRows">
             <FormCheckbox v-model:value="item.isSelected"/>
           </td>
           <td v-for="(column, columnIndex) in columns"
-              :key="columnIndex">
+              :key="columnIndex"
+              :class="{'datatable-preserve-mobile': column.showInMobile}">
             <slot
                 :name="column.key"
                 :item="item"

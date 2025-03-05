@@ -1,3 +1,7 @@
+@use "../common/variables" as *;
+@use "../components/button" as *;
+@use 'bootstrap/scss/bootstrap' as bs;
+
 .header {
   margin-bottom: 44px;
 
@@ -6,5 +10,48 @@
     justify-content: flex-end;
     align-items: center;
     gap: 20px;
+  }
+
+  &-burger {
+    @extend .button-square;
+    z-index: 11;
+
+    @include bs.media-breakpoint-up(lg) {
+      display: none;
+    }
+
+    span {
+      position: absolute;
+      display: block;
+      width: 20px;
+      height: 2px;
+      background-color: $blue;
+      top: calc(50% - 1px);
+      left: 16px;
+      transition: 0.3s;
+
+      &:first-child {
+        transform: translateY(-5px);
+      }
+
+      &:last-child {
+        transform: translateY(5px);
+      }
+    }
+
+    &--active {
+
+      span {
+        transform: rotate(180deg) scale(0);
+
+        &:first-child {
+          transform: rotate(135deg);
+        }
+
+        &:last-child {
+          transform: rotate(225deg);
+        }
+      }
+    }
   }
 }

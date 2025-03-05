@@ -1,9 +1,14 @@
 @use "../common/variables" as *;
+@use 'bootstrap/scss/bootstrap' as bs;
 
 .datatable {
 
   table {
     margin-bottom: 0;
+
+    @include bs.media-breakpoint-down(lg) {
+      display: block;
+    }
 
     thead {
 
@@ -24,7 +29,15 @@
 
     tbody {
 
+      @include bs.media-breakpoint-down(lg) {
+        display: block;
+      }
+
       tr {
+
+        @include bs.media-breakpoint-down(lg) {
+          display: block;
+        }
 
         &:last-child {
 
@@ -43,6 +56,10 @@
         td {
           padding: 30px 12px 24px;
           color: rgba($black, 0.65);
+
+          @include bs.media-breakpoint-down(lg) {
+            padding: 8px 15px;
+          }
         }
       }
     }
@@ -50,7 +67,7 @@
     td, th {
       border-bottom: 1px solid $border;
 
-      &.checkbox {
+      &.datatable-checkbox {
         width: 1px;
         line-height: 0;
       }
@@ -61,6 +78,15 @@
 
       &:last-child {
         padding-right: 24px;
+      }
+
+      @include bs.media-breakpoint-down(lg) {
+        display: block;
+        border-bottom: none;
+
+        &:not(.datatable-preserve-mobile) {
+          display: none;
+        }
       }
     }
   }
