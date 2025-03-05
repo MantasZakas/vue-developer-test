@@ -11,7 +11,7 @@ const routes = [
     component: DefaultLayout,
     children: [
       { path: '', name: ERoute.dashboard, component: Dashboard, meta: { showSearch: true } },
-      { path: '/product', name: ERoute.product, component: Product },
+      { path: '/product/:id', name: ERoute.product, component: Product },
       { path: '/lab-test', name: ERoute.labTest, component: ComingSoon },
       { path: '/appointment', name: ERoute.appointment, component: ComingSoon },
       { path: '/medicine-order', name: ERoute.medicineOrder, component: ComingSoon },

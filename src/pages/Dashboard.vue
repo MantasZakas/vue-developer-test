@@ -7,6 +7,7 @@ import ProductsService from "../services/products.api"
 import { useI18n } from "vue-i18n"
 import type { IDataTableColumn } from "../interfaces/DataTableInterface"
 import { AxiosError } from "axios"
+import { ERoute } from '../router/utils'
 
 const { t } = useI18n()
 const productTitle = ref<string>('')
@@ -56,6 +57,11 @@ async function fetchProducts():Promise<Product[]> {
             v-model:value="productBrand"/>
       </div>
     </div>
+    <template #title="{ item }">
+      <RouterLink :to="{ name: ERoute.product, params: { id: item.id } }">
+        {{ item.title }}
+      </RouterLink>
+    </template>
   </DataTable>
 </template>
 

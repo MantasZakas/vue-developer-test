@@ -31,20 +31,22 @@ const bottomLinks = ref<INavigationItem[]>([
 </script>
 
 <template>
-  <aside class="sidebar">
-    <div class="sidebar-top">
-      <RouterLink
-          class="sidebar-top__logo"
-          :to="{name: ERoute.dashboard}"
-          :aria-label="$t('Home')" >
-        <img :src="logo" :alt="$t('Sales')"/>
-      </RouterLink>
-    </div>
-    <div class="sidebar-body">
-      <VerticalMenu :menu-items="links" :menu-label="$t('Primary navigation')"/>
-    </div>
-    <div class="sidebar-bottom">
-      <VerticalMenu :menu-items="bottomLinks" :menu-label="$t('Bottom navigation')"/>
+  <aside class="sidebar-wrap">
+    <div class="sidebar">
+      <div class="sidebar-top">
+        <RouterLink
+            class="sidebar-top__logo"
+            :to="{name: ERoute.dashboard}"
+            :aria-label="$t('Home')" >
+          <img :src="logo" :alt="$t('Sales')"/>
+        </RouterLink>
+      </div>
+      <div class="sidebar-body">
+        <VerticalMenu :menu-items="links" :menu-label="$t('Primary navigation')"/>
+      </div>
+      <div class="sidebar-bottom">
+        <VerticalMenu :menu-items="bottomLinks" :menu-label="$t('Bottom navigation')"/>
+      </div>
     </div>
   </aside>
 </template>
