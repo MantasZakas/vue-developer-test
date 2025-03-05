@@ -24,7 +24,7 @@ const columns: IDataTableColumn[] = [
   { title: t('Rating'), key: "rating" }
 ]
 
-async function fetchProducts():Promise<Product[]> {
+export async function fetchProducts():Promise<Product[]> {
   try {
     const sortParams = {
       sortBy: route.query.sort || undefined,
